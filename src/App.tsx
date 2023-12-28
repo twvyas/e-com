@@ -1,5 +1,5 @@
 import './App.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useQuery } from 'react-query'
 
 //components
@@ -35,28 +35,34 @@ export type CartItemType = {
 // a React application. Under the hood, these hooks manage lots of things such as
 // caching data after the initial fetch, re-fetching data in the background, etc.
 
-const getProducts = async (): Promise<CartItemType[]> =>
-   await apiCall.get("products") // use axios(instance) instead of this 
-  
 //  can i call ?yep
 const App = () => {
   const [cartOpen, setCartOpen] = useState(false);
-  const [cartItems, setCartItems] = useState([] as CartItemType[])
-  const { data, isLoading, error } = useQuery<CartItemType[]>(
-    'products',
-    getProducts
-  );
+  const [isLoading, setIsLoading] = useState(false);
+  // const [cartItems, setCartItems] = useState([] as CartItemType[])
+  const [data, setData] = useState([] as CartItemType[])
 
-  console.log(data)
+  const getProducts = async () => {
+    setIsLoading(true)
+    const productsArr = await apiCall.get("products") // use axios(instance) instead of this 
+    setData(productsArr.data)
+    setIsLoading(false)
+  }
+
+  
+
+  useEffect(() => {
+    getProducts();
+  },[]);
 
   const getTotalItems = () => null;
 
   const handleAddToCart = (clickedItem: CartItemType) => null;
 
-  const handleRemoveFromCart = () => null;
+  // const handleRemoveFromCart = () => null;
 
   if (isLoading) return <LinearProgress />
-  if (error) return <div>Something went wrong ...</div>
+  // if (error) return <div>Something went wrong ...</div>
 
 
   return (
