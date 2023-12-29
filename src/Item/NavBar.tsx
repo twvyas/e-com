@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -5,7 +6,14 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
-function NavBar() {
+function NavBar(props) {
+  const [selectedValue, setSelectedValue] = useState('All');
+  const handleSelect = (selectedItem:string) => {
+    setSelectedValue(selectedItem);
+    props.setSelected(selectedItem);
+    
+  };
+
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
@@ -30,23 +38,17 @@ function NavBar() {
               </NavDropdown.Item>
             </NavDropdown> */}
             <Nav.Link href="#" disabled>
-              
             </Nav.Link>
           </Nav>
           <Form className="d-flex">
-          <NavDropdown title="All" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Men's clothing</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-              Jewelery
-              </NavDropdown.Item>
-              {/* <NavDropdown.Divider /> */}
-              <NavDropdown.Item href="#action5">
-              Electronics
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action6">
-              Women's clothing{}
-              </NavDropdown.Item>
+            <NavDropdown title={selectedValue} id="navbarScrollingDropdown" onSelect={handleSelect}> 
+              {props.selectionArr.map((Selection:string, index:number) => (
+                <NavDropdown.Item key={index} eventKey={Selection}>
+                  {Selection}
+                </NavDropdown.Item>
+              ))}
             </NavDropdown>
+  
             <Form.Control
               type="search"
               placeholder="Search"
@@ -55,7 +57,7 @@ function NavBar() {
             />
             <Button variant="outline-info">Search</Button>
           </Form>
-        </Navbar.Collapse>
+        </Navbar.Collapse>  
       </Container>
     </Navbar>
   );
