@@ -27,25 +27,12 @@ export type CartItemType = {
   amount: number;
 }
 
-// React Query is a library that gives 
-// React JS the state management ability for any kind of asynchronous data.
-// “React Query is often described as the missing data-fetching library for React,
-// but in more technical terms, it makes fetching, caching, synchronizing and
-// updating server state in your React applications a breeze.”
-// useQuery is a custom hook within React Query used to fetch data in
-// a React application. Under the hood, these hooks manage lots of things such as
-// caching data after the initial fetch, re-fetching data in the background, etc.
-
-//  can i call ?yep
 const App = () => {
   const [cartOpen, setCartOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   // const [cartItems, setCartItems] = useState([] as CartItemType[])
   const [data, setData] = useState([] as CartItemType[])
-
-
-  
 
   const getProducts = async () => {
     try {
@@ -60,37 +47,26 @@ const App = () => {
     }
   };
 
-
-
   useEffect(() => {
     getProducts();
-
   }, []);
 
   useEffect(() => {
-    data.map((d)=> console.log(d.category))
-    
+    data.map((d) => console.log(d.category))
+
   }, [data]);
 
-
-
   const getTotalItems = () => null;
-
   const handleAddToCart = (clickedItem: CartItemType) => null;
-
   // const handleRemoveFromCart = () => null;
 
   if (isLoading) return <LinearProgress />
   if (error) return <div>Something went wrong ...</div>
 
-  
-  
-
   return (
     <>
       <NavBar />
       <Wrapper>
-
         <Drawer anchor='right' open={cartOpen} onClose={() => setCartOpen(false)}>
           Cart goes here
         </Drawer>
@@ -110,3 +86,4 @@ const App = () => {
 }
 
 export default App
+
