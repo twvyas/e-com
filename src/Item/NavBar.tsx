@@ -5,7 +5,6 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
-
 function NavBar() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
@@ -36,13 +35,16 @@ function NavBar() {
           </Nav>
           <Form className="d-flex">
           <NavDropdown title="All" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action3">Men's clothing</NavDropdown.Item>
               <NavDropdown.Item href="#action4">
-                Another action
+              Jewelery
               </NavDropdown.Item>
-              <NavDropdown.Divider />
+              {/* <NavDropdown.Divider /> */}
               <NavDropdown.Item href="#action5">
-                Something else here
+              Electronics
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action6">
+              Women's clothing{}
               </NavDropdown.Item>
             </NavDropdown>
             <Form.Control

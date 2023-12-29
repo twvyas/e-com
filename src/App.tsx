@@ -10,6 +10,7 @@ import Grid from '@material-ui/core/Grid'
 // import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart'
 import Badge from '@material-ui/core/Badge'
 import NavBar from './Item/NavBar'
+import Footer from './Item/Footer'
 
 
 //styles
@@ -81,6 +82,7 @@ const App = () => {
           ))}
         </Grid>
       </Wrapper>
+      <Footer/>
     </>
   );
 }
