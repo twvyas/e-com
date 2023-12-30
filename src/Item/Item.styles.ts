@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
+
 display:flex;
 justify-content:space-between;
 flex-direction:column;
@@ -12,9 +13,7 @@ height:100%;
 button{
     border-radius:0 0 20px 20px;
 }
-
-
-  
+ 
 img{
    margin:auto;
     max-height:250px;
@@ -41,4 +40,6 @@ div{
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+
+
 `;

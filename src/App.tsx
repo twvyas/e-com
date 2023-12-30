@@ -11,8 +11,6 @@ import Grid from '@material-ui/core/Grid'
 import Badge from '@material-ui/core/Badge'
 import NavBar from './Item/NavBar'
 import Footer from './Item/Footer'
-
-
 //styles
 import { Wrapper, StyledButton } from './App.styles';
 import { apiCall } from './utils/functions'
@@ -32,7 +30,7 @@ const App = () => {
   const [cartOpen, setCartOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [selected, setSelected] = useState("All");
+  const [categories, setCategories] = useState("All");
   const [selectionArr, setSelectionArr] = useState(["All"]);
   const [products, setProducts] = useState([] as CartItemType[]);
   // const [cartItems, setCartItems] = useState([] as CartItemType[])
@@ -286,7 +284,7 @@ const App = () => {
       ]
       setData(productsArr);
       const uniqueCategories = [...new Set(productsArr.map((d) => d.category))];
-      setSelectionArr([...selectionArr,...uniqueCategories]);
+      setSelectionArr([...selectionArr, ...uniqueCategories]);
     } catch (error) {
       console.log("Error fetching products:", error);
       setError(true)
@@ -295,22 +293,23 @@ const App = () => {
     }
   };
 
-const filterProducts=async()=>{
-  if (selected === "All") {
-    setProducts(data);
-  } else {
-    const filterData = data.filter((d) => d.category === selected);
-    setProducts(filterData);
+  const filterProducts = async () => {
+    if (categories === "All") {
+      setProducts(data);
+    } else {
+      const filterData = data.filter((d) => d.category === categories);
+      setProducts(filterData);
+    }
   }
-}
+
 
   useEffect(() => {
     getProducts();
   }, []);
 
-  useEffect(()=>{
+  useEffect(() => {
     filterProducts();
-  },[data,selected]);
+  }, [data, categories]);
 
 
 
@@ -323,7 +322,7 @@ const filterProducts=async()=>{
 
   return (
     <>
-      <NavBar setSelected={setSelected} selectionArr={selectionArr} />
+      <NavBar setCategories={setCategories} selectionArr={selectionArr} />
       <Wrapper>
         <Drawer anchor='right' open={cartOpen} onClose={() => setCartOpen(false)}>
           Cart goes here
@@ -343,6 +342,5 @@ const filterProducts=async()=>{
     </>
   );
 }
-
 export default App
 

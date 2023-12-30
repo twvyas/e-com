@@ -6,13 +6,25 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
-function NavBar(props) {
+function NavBar(props: { setCategories: (arg0: string) => void; selectionArr: string[]; }) {
   const [selectedValue, setSelectedValue] = useState('All');
+  // const [searchInput, setSearchInput] = useState('');
+
+
   const handleSelect = (selectedItem:string) => {
     setSelectedValue(selectedItem);
-    props.setSelected(selectedItem);
+    props.setCategories(selectedItem);
     
   };
+
+//   const searchItems = (searchValue) => {
+//     setSearchInput(searchValue)
+//     APIData.filter((item) => {
+//         return Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase())
+//     })
+// }
+
+ 
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
@@ -54,7 +66,9 @@ function NavBar(props) {
               placeholder="Search"
               className="me-2"
               aria-label="Search"
+              onChange={(e) => searchItems(e.target.value)}
             />
+
             <Button variant="outline-info">Search</Button>
           </Form>
         </Navbar.Collapse>  
