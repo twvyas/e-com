@@ -1,5 +1,5 @@
 import './App.css'
-import { SetStateAction, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 // import { useQuery } from 'react-query'
 
 //components
@@ -13,6 +13,7 @@ import NavBar from './Item/NavBar'
 import Footer from './Item/Footer'
 //styles
 import { Wrapper, StyledButton } from './App.styles';
+import { Button, Form } from 'react-bootstrap'
 // import { apiCall } from './utils/functions'
 
 //type
@@ -305,18 +306,21 @@ const App = () => {
     }
   }
 
-  const searchItems = (searchValue: SetStateAction<string>) => {
-    setSearchInput(searchValue)
-    if (searchInput !== '') {
-        const filterProducts = data.filter((item) => {
-            return Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase())
-        })
-        setProducts(filterProducts)
+  const searchItems = (searchValue: string) => {
+    setSearchInput(searchValue);
+    if (searchValue !== '') {
+      const filterProducts = data.filter((item) => {
+        return Object.values(item)
+          .filter((value) => typeof value === 'string') 
+          .join('')
+          .toLowerCase()
+          .includes(searchValue.toLowerCase());
+      });
+      setProducts(filterProducts);
+    } else {
+      filterProducts();
     }
-    else{
-        setProducts(data)
-    }
-}
+  };
 
   useEffect(() => {
     getProducts();
@@ -338,10 +342,8 @@ const App = () => {
 
   return (
     <>
-      <NavBar 
-      setCategories={setCategories}
-       selectionArr={selectionArr}
-        />
+      <NavBar setCategories={setCategories} selectionArr={selectionArr} setSearchInput={setSearchInput} />
+
       <Wrapper>
         <Drawer anchor='right' open={cartOpen} onClose={() => setCartOpen(false)}>
           Cart goes here
@@ -356,6 +358,15 @@ const App = () => {
             </Grid>
           ))}
         </Grid>
+        <Form.Control
+          type="search"
+          placeholder="Search"
+          className="me-2"
+          aria-label="Search"
+          onChange={(e) => searchItems(e.target.value)}
+        />
+        <Button variant="outline-info">Search</Button>
+        
       </Wrapper>
       <Footer />
     </>
