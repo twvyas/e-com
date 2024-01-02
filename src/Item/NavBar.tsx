@@ -9,13 +9,17 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function NavBar(props: { setCategories: (arg0: string) => void; selectionArr: string[]; }) {
   const [selectedValue, setSelectedValue] = useState('All');
+  const [searchProduct, setSearchProduct]=useState(false)
  
 
 
   const handleSelect = (selectedItem:string) => {
     setSelectedValue(selectedItem);
     props.setCategories(selectedItem);
-    
+    setSearchProduct();
+    props.setSearchInput();
+
+
     
   };
 
