@@ -9,7 +9,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function NavBar(props: { setCategories: (arg0: string) => void; selectionArr: string[]; }) {
   const [selectedValue, setSelectedValue] = useState('All');
-  
+ 
 
 
   const handleSelect = (selectedItem:string) => {
@@ -26,7 +26,7 @@ function NavBar(props: { setCategories: (arg0: string) => void; selectionArr: st
  
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="bg-body-tertiary fixed-top">
       <Container fluid>
         <Navbar.Brand href="#">Store</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -68,9 +68,7 @@ function NavBar(props: { setCategories: (arg0: string) => void; selectionArr: st
               onChange={(e) => searchItems(e.target.value)}
             /> 
             <Button variant="outline-info">Search</Button>
-           
           </Form>
-         
         </Navbar.Collapse>  
       </Container>
     </Navbar>

@@ -1,3 +1,6 @@
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
+
 export default function Footer() {
   return (
     <footer className="text-center text-lg-start bg-body-tertiary text-muted">
@@ -29,11 +32,9 @@ export default function Footer() {
     
       </section>
    
-
-
       <div className="text-center p-4" style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
-        © 2021 Copyright:
-        <a className="text-reset fw-bold" href="https://mdbootstrap.com/">.com</a>
+        © 2021 Copyright: 
+        <a className="text-reset fw-bold" href="https://mdbootstrap.com/">Store.com</a>
       </div>
     </footer>
   

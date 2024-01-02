@@ -17,7 +17,7 @@ import { Wrapper, StyledButton } from './App.styles';
 
 //type
 export type CartItemType = {
-  [x: string]: any
+  [x: string]: unknown
   id: number;
   category: string;
   description: string;
@@ -362,4 +362,5 @@ const App = () => {
   );
 }
 export default App
+
 
