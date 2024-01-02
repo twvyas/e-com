@@ -41,5 +41,11 @@ div{
     overflow: hidden;
   }
 
+  .checked {
+    color: orange;
+
+
+
+
 
 `;

@@ -1,98 +1,41 @@
-import React from 'react';
-import {
-  MDBFooter,
-  MDBContainer,
-//   MDBCol,
-//   MDBRow,
-  MDBIcon,
-  MDBBtn
-} from 'mdb-react-ui-kit';
-
 export default function Footer() {
   return (
-    <MDBFooter className='text-center text-white' style={{ backgroundColor: '#f1f1f1' }}>
-      <MDBContainer className='pt-4'>
-        <section className='mb-4'>
-          <MDBBtn
-            rippleColor="dark"
-            color='link'
-            floating
-            size="lg"
-            className='text-dark m-1'
-            href='#!'
-            role='button'
-          >
-            <MDBIcon fab className='fab fa-facebook-f' />
-          </MDBBtn>
+    <footer className="text-center text-lg-start bg-body-tertiary text-muted">
+      <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+        <div className="me-5 d-none d-lg-block">
+          <span>Get connected with us on social networks:</span>
+        </div>
 
-          <MDBBtn
-            rippleColor="dark"
-            color='link'
-            floating
-            size="lg"
-            className='text-dark m-1'
-            href='#!'
-            role='button'
-          >
-            <MDBIcon fab className='fa-twitter' />
-          </MDBBtn>
+        <div>
+          <a href="" className="me-4 text-reset">
+            <i className="fab fa-facebook-f"></i>
+          </a>
+          <a href="" className="me-4 text-reset">
+            <i className="fab fa-twitter"></i>
+          </a>
+          <a href="" className="me-4 text-reset">
+            <i className="fab fa-google"></i>
+          </a>
+          <a href="" className="me-4 text-reset">
+            <i className="fab fa-instagram"></i>
+          </a>
+          <a href="" className="me-4 text-reset">
+            <i className="fab fa-linkedin"></i>
+          </a>
+          <a href="" className="me-4 text-reset">
+            <i className="fab fa-github"></i>
+          </a>
+        </div>
+    
+      </section>
+   
 
-          <MDBBtn
-            rippleColor="dark"
-            color='link'
-            floating
-            size="lg"
-            className='text-dark m-1'
-            href='#!'
-            role='button'
-          >
-            <MDBIcon fab className='fa-google' />
-          </MDBBtn>
 
-          <MDBBtn
-            rippleColor="dark"
-            color='link'
-            floating
-            size="lg"
-            className='text-dark m-1'
-            href='#!'
-            role='button'
-          >
-            <MDBIcon fab className='fa-instagram' />
-          </MDBBtn>
-
-          <MDBBtn
-            rippleColor="dark"
-            color='link'
-            floating
-            size="lg"
-            className='text-dark m-1'
-            href='#!'
-            role='button'
-          >
-            <MDBIcon fab className='fa-linkedin' />
-          </MDBBtn>
-
-          <MDBBtn
-            rippleColor="dark"
-            color='link'
-            floating
-            size="lg"
-            className='text-dark m-1'
-            href='#!'
-            role='button'
-          >
-            <MDBIcon fab className='fa-github' />
-          </MDBBtn>
-        </section>
-      </MDBContainer>
-
-      <div className='text-center text-dark p-3' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
-        © 2023 Copyright: 
-        <a className='text-dark' href='https://Store.com/'>
-          Store.com
-        </a>
+      <div className="text-center p-4" style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
+        © 2021 Copyright:
+        <a className="text-reset fw-bold" href="https://mdbootstrap.com/">.com</a>
       </div>
-    </MDBFooter>
+    </footer>
+  
   );
 }

@@ -1,5 +1,5 @@
 import './App.css'
-import { useEffect, useState } from 'react'
+import { SetStateAction, useEffect, useState } from 'react'
 // import { useQuery } from 'react-query'
 
 //components
@@ -13,10 +13,11 @@ import NavBar from './Item/NavBar'
 import Footer from './Item/Footer'
 //styles
 import { Wrapper, StyledButton } from './App.styles';
-import { apiCall } from './utils/functions'
+// import { apiCall } from './utils/functions'
 
 //type
 export type CartItemType = {
+  [x: string]: any
   id: number;
   category: string;
   description: string;
@@ -35,6 +36,8 @@ const App = () => {
   const [products, setProducts] = useState([] as CartItemType[]);
   // const [cartItems, setCartItems] = useState([] as CartItemType[])
   const [data, setData] = useState([] as CartItemType[])
+  const [searchInput, setSearchInput] = useState('');
+
 
   const getProducts = async () => {
     try {
@@ -302,6 +305,18 @@ const App = () => {
     }
   }
 
+  const searchItems = (searchValue: SetStateAction<string>) => {
+    setSearchInput(searchValue)
+    if (searchInput !== '') {
+        const filterProducts = data.filter((item) => {
+            return Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase())
+        })
+        setProducts(filterProducts)
+    }
+    else{
+        setProducts(data)
+    }
+}
 
   useEffect(() => {
     getProducts();
@@ -312,17 +327,21 @@ const App = () => {
   }, [data, categories]);
 
 
-
   const getTotalItems = () => null;
   const handleAddToCart = (clickedItem: CartItemType) => null;
   // const handleRemoveFromCart = () => null;
+
+
 
   if (isLoading) return <LinearProgress />
   if (error) return <div>Something went wrong ...</div>
 
   return (
     <>
-      <NavBar setCategories={setCategories} selectionArr={selectionArr} />
+      <NavBar 
+      setCategories={setCategories}
+       selectionArr={selectionArr}
+        />
       <Wrapper>
         <Drawer anchor='right' open={cartOpen} onClose={() => setCartOpen(false)}>
           Cart goes here

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -8,21 +9,19 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function NavBar(props: { setCategories: (arg0: string) => void; selectionArr: string[]; }) {
   const [selectedValue, setSelectedValue] = useState('All');
-  // const [searchInput, setSearchInput] = useState('');
+  
 
 
   const handleSelect = (selectedItem:string) => {
     setSelectedValue(selectedItem);
     props.setCategories(selectedItem);
     
+    
   };
 
-//   const searchItems = (searchValue) => {
-//     setSearchInput(searchValue)
-//     APIData.filter((item) => {
-//         return Object.values(item).join('').toLowerCase().includes(searchInput.toLowerCase())
-//     })
-// }
+  function searchItems(value: string): void {
+    throw new Error('Function not implemented.');
+  }
 
  
 
@@ -60,17 +59,18 @@ function NavBar(props: { setCategories: (arg0: string) => void; selectionArr: st
                 </NavDropdown.Item>
               ))}
             </NavDropdown>
-  
+
             <Form.Control
               type="search"
               placeholder="Search"
               className="me-2"
               aria-label="Search"
               onChange={(e) => searchItems(e.target.value)}
-            />
-
+            /> 
             <Button variant="outline-info">Search</Button>
+           
           </Form>
+         
         </Navbar.Collapse>  
       </Container>
     </Navbar>
