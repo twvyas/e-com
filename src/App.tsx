@@ -341,7 +341,7 @@ const App = () => {
 
   return (
     <>
-      <NavBar setCategories={setCategories} selectionArr={selectionArr} setSearchInput={setSearchInput} />
+      <NavBar setCategories={setCategories} selectionArr={selectionArr} setSearchInput={setSearchInput} searchItems={searchItems}/>
 
       <Wrapper>
         <Drawer anchor='right' open={cartOpen} onClose={() => setCartOpen(false)}>
@@ -357,15 +357,7 @@ const App = () => {
             </Grid>
           ))}
         </Grid>
-        <Form.Control
-          type="search"
-          placeholder="Search"
-          className="me-2"
-          aria-label="Search"
-          onChange={(e) => searchItems(e.target.value)}
-        />
-        <Button variant="outline-info">Search</Button>
-        
+       
       </Wrapper>
       <Footer />
     </>

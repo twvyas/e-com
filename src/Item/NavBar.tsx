@@ -8,6 +8,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function NavBar(props: {
+  searchItems(value: string): unknown;
   setCategories: (arg0: string) => void;
   selectionArr: string[];
   setSearchInput: React.Dispatch<React.SetStateAction<string>>;
@@ -24,18 +25,18 @@ function NavBar(props: {
   //   setSearchProduct();
   //   props.setSearchInput();
 
-    const handleSelect = (selectedItem: string) => {
-      setSelectedValue(selectedItem);
-      props.setCategories(selectedItem);
-      props.setSearchInput(''); 
-    };
-
-
-    
-  
-  const searchItems = (value: string): void => {
-    props.setSearchInput(value);
+  const handleSelect = (selectedItem: string) => {
+    setSelectedValue(selectedItem);
+    props.setCategories(selectedItem);
+    props.setSearchInput('');
   };
+
+
+
+
+  // const searchItems = (value: string): void => {
+  //   props.setSearchInput(value);
+  // };
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary fixed-top">
@@ -55,29 +56,26 @@ function NavBar(props: {
             </Nav.Link>
           </Nav>
           <Form className="d-flex">
-          <NavDropdown title={selectedValue} id="navbarScrollingDropdown" onSelect={handleSelect}>
-              {props.selectionArr.map((Selection:string, index:number) => (
+            <NavDropdown title={selectedValue} id="navbarScrollingDropdown" onSelect={handleSelect}>
+              {props.selectionArr.map((Selection: string, index: number) => (
                 <NavDropdown.Item key={index} eventKey={Selection}>
                   {Selection}
                 </NavDropdown.Item>
               ))}
             </NavDropdown>
-
-        
-
-                <Form.Control
+            <Form.Control
               type="search"
               placeholder="Search"
               className="me-2"
               aria-label="Search"
               onChange={(e) => {
-                props.setSearchInput(e.target.value); 
-                props.searchItems(e.target.value);  
+                props.setSearchInput(e.target.value);
+                props.searchItems(e.target.value);
               }}
-            /> 
+            />
             <Button variant="outline-info">Search</Button>
           </Form>
-        </Navbar.Collapse>  
+        </Navbar.Collapse>
       </Container>
     </Navbar>
   );
