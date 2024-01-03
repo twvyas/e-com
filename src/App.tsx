@@ -10,6 +10,7 @@ import Grid from '@material-ui/core/Grid'
 import Badge from '@material-ui/core/Badge'
 import NavBar from './Item/NavBar'
 import Footer from './Item/Footer'
+import Banner from './Item/Banner'
 //styles
 import { Wrapper, StyledButton } from './App.styles';
 import { Button, Form } from 'react-bootstrap'
@@ -342,7 +343,7 @@ const App = () => {
   return (
     <>
       <NavBar setCategories={setCategories} selectionArr={selectionArr} setSearchInput={setSearchInput} searchItems={searchItems}/>
-
+      <Banner/>
       <Wrapper>
         <Drawer anchor='right' open={cartOpen} onClose={() => setCartOpen(false)}>
           Cart goes here

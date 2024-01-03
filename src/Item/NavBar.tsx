@@ -15,31 +15,16 @@ function NavBar(props: {
 }) {
   const [selectedValue, setSelectedValue] = useState('All');
   const [searchProduct, setSearchProduct] = useState(false);
-
-
-
-
-  // const handleSelect = (selectedItem:string) => {
-  //   setSelectedValue(selectedItem);
-  //   props.setCategories(selectedItem);
-  //   setSearchProduct();
-  //   props.setSearchInput();
-
+  
   const handleSelect = (selectedItem: string) => {
     setSelectedValue(selectedItem);
     props.setCategories(selectedItem);
     props.setSearchInput('');
   };
 
-
-
-
-  // const searchItems = (value: string): void => {
-  //   props.setSearchInput(value);
-  // };
-
   return (
-    <Navbar expand="lg" className="bg-body-tertiary fixed-top">
+
+    <Navbar expand="lg" className="bg-body-tertiary fixed-top border-bottom rounded-bottom shadow mb-5 bg-white rounded">
       <Container fluid>
         <Navbar.Brand href="#">Store</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -82,4 +67,7 @@ function NavBar(props: {
 }
 
 export default NavBar;
+
+
+
 
