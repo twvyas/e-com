@@ -1,7 +1,6 @@
 import './App.css'
 import { SetStateAction, useEffect, useState } from 'react'
 // import { useQuery } from 'react-query'
-
 //components
 import Item from './Item/Item'
 import Drawer from '@material-ui/core/Drawer'
