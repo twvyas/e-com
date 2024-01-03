@@ -25,6 +25,10 @@ export type CartItemType = {
   image: string;
   price: number;
   title: string;
+  rating:{
+    rate:number,
+    count:number
+  }
   // amount: number;
 }
 
@@ -38,6 +42,7 @@ const App = () => {
   // const [cartItems, setCartItems] = useState([] as CartItemType[])
   const [data, setData] = useState([] as CartItemType[])
   const [searchInput, setSearchInput] = useState('');
+  const[titlesArr,setTitlesArr]=useState([] as string[]);
 
 
   const getProducts = async () => {
@@ -289,6 +294,8 @@ const App = () => {
       setData(productsArr);
       const uniqueCategories = [...new Set(productsArr.map((d) => d.category))];
       setSelectionArr([...selectionArr, ...uniqueCategories]);
+      const uniqueTitles = [...new Set(productsArr.map((d)=>d.title))];
+      setTitlesArr(uniqueTitles)
     } catch (error) {
       console.log("Error fetching products:", error);
       setError(true)
@@ -311,7 +318,7 @@ const App = () => {
     if (searchValue !== '') {
       const filterProducts = data.filter((item) => {
         return Object.values(item)
-          .filter((value) => typeof value === 'string') 
+          .filter((value) => typeof value === 'string')
           .join('')
           .toLowerCase()
           .includes(searchValue.toLowerCase());
@@ -342,8 +349,14 @@ const App = () => {
 
   return (
     <>
-      <NavBar setCategories={setCategories} selectionArr={selectionArr} setSearchInput={setSearchInput} searchItems={searchItems}/>
-      <Banner/>
+      <NavBar
+       setCategories={setCategories} 
+       selectionArr={selectionArr}
+        setSearchInput={setSearchInput} 
+        searchItems={searchItems}
+        // setTitlesArr={setTitlesArr} 
+        />
+      <Banner />
       <Wrapper>
         <Drawer anchor='right' open={cartOpen} onClose={() => setCartOpen(false)}>
           Cart goes here
@@ -358,7 +371,7 @@ const App = () => {
             </Grid>
           ))}
         </Grid>
-       
+
       </Wrapper>
       <Footer />
     </>

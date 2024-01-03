@@ -12,7 +12,7 @@ function NavBar(props: {
   setCategories: (arg0: string) => void;
   selectionArr: string[];
   setSearchInput: React.Dispatch<React.SetStateAction<string>>;
-}) {
+  }) {
   const [selectedValue, setSelectedValue] = useState('All');
   const [searchProduct, setSearchProduct] = useState(false);
   
@@ -52,6 +52,7 @@ function NavBar(props: {
               type="search"
               placeholder="Search"
               className="me-2"
+              // options={props.titlesArr}
               aria-label="Search"
               onChange={(e) => {
                 props.setSearchInput(e.target.value);
