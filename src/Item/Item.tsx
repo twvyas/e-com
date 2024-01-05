@@ -11,14 +11,14 @@ type Props = {
   handleAddToCart: (clickedItem: CartItemType) => void;
 }
 
-const Item: React.FC<Props> = ({ item, handleAddToCart }) => {
+const Item = ({ item, handleAddToCart }:Props) => {
   const renderStars = () => {
     const filledStars = Math.round(item.rating.rate); // Round to the nearest integer
     const stars = [];
 
     for (let i = 1; i <= 5; i++) {
-      const starClass = i <= filledStars ? 'fa fa-star checked' : 'fa fa-star';
-      stars.push(<span key={i} className={starClass}></span>);
+      const starClass = i <= filledStars ? 'fa-solid fa-star' : 'fa-regular fa-star';
+      stars.push(<i key={i} className={starClass} />);
     }
 
     return stars;
