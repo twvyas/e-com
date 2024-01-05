@@ -296,10 +296,9 @@ const App = () => {
       console.log(uniqueCategories)
 
       const uniqueTitlesArr = [...new Set(productsArr.map((d) => d.title))];
-      setTitlesArr([...titlesArr,...uniqueTitlesArr]);
-     
+      setTitlesArr([...titlesArr, ...uniqueTitlesArr]);
       console.log(uniqueTitlesArr)
-      
+
     } catch (error) {
       console.log("Error fetching products:", error);
       setError(true)

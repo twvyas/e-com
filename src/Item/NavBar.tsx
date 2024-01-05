@@ -70,7 +70,12 @@ function NavBar(props: {
               onChange={(selectedOption) => {
                 props.setSearchInput(selectedOption.value);
                 props.searchItems(selectedOption.value);
-
+              }}
+              styles={{
+                control: (provided) => ({
+                  ...provided,
+                  width: '400px', 
+                }),
               }}
             />
 
