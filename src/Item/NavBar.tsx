@@ -6,6 +6,8 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Select from 'react-select';
+
 
 function NavBar(props: {
   searchItems(value: string): unknown;
@@ -48,7 +50,7 @@ function NavBar(props: {
                 </NavDropdown.Item>
               ))}
             </NavDropdown>
-            <Form.Control
+            {/* <Form.Control
               type="search"
               placeholder="Search"
               className="me-2"
@@ -57,7 +59,20 @@ function NavBar(props: {
                 props.setSearchInput(e.target.value);
                 props.searchItems(e.target.value);
               }}
-            />
+            /> */}
+
+
+<Select
+  placeholder="Search"
+  className="me-2"
+  aria-label="Search"
+  onChange={(selectedOption) => {
+    props.setSearchInput(selectedOption.value);
+    props.searchItems(selectedOption.value);
+  }}
+  options={selectionArr}
+/>
+
             <Button variant="outline-info">Search</Button>
           </Form>
         </Navbar.Collapse>

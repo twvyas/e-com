@@ -24,6 +24,7 @@
     "react-dom": "^18.2.0",
     "react-query": "^3.39.3",
     "react-router-dom": "^6.21.1",
+    "react-select": "^5.8.0",
     "solid": "link:@heroicons/react/24/solid",
     "styled-components": "^6.1.3"
   },
