@@ -297,7 +297,7 @@ const App = () => {
 
       const uniqueTitlesArr = [...new Set(productsArr.map((d) => d.title))];
       setTitlesArr([...titlesArr,...uniqueTitlesArr]);
-      
+     
       console.log(uniqueTitlesArr)
       
     } catch (error) {

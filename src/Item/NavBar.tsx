@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { Height } from '@material-ui/icons';
 import { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -61,7 +62,7 @@ function NavBar(props: {
                 props.searchItems(e.target.value);
               }}
             /> */}
-            <Select
+            <Select 
               placeholder="Search"
               className="me-2"
               aria-label="Search"
@@ -69,6 +70,7 @@ function NavBar(props: {
               onChange={(selectedOption) => {
                 props.setSearchInput(selectedOption.value);
                 props.searchItems(selectedOption.value);
+
               }}
             />
 
