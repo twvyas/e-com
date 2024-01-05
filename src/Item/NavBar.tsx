@@ -14,10 +14,12 @@ function NavBar(props: {
   setCategories: (arg0: string) => void;
   selectionArr: string[];
   setSearchInput: React.Dispatch<React.SetStateAction<string>>;
-  }) {
+  titlesArr: string[];
+
+}) {
   const [selectedValue, setSelectedValue] = useState('All');
   const [searchProduct, setSearchProduct] = useState(false);
-  
+
   const handleSelect = (selectedItem: string) => {
     setSelectedValue(selectedItem);
     props.setCategories(selectedItem);
@@ -25,7 +27,6 @@ function NavBar(props: {
   };
 
   return (
-
     <Navbar expand="lg" className="bg-body-tertiary fixed-top border-bottom rounded-bottom shadow mb-5 bg-white rounded">
       <Container fluid>
         <Navbar.Brand href="#">Store</Navbar.Brand>
@@ -38,7 +39,6 @@ function NavBar(props: {
           >
             <Nav.Link href="#action1"></Nav.Link>
             <Nav.Link href="#action2"></Nav.Link>
-
             <Nav.Link href="#" disabled>
             </Nav.Link>
           </Nav>
@@ -61,18 +61,16 @@ function NavBar(props: {
                 props.searchItems(e.target.value);
               }}
             /> */}
-
-
-<Select
-  placeholder="Search"
-  className="me-2"
-  aria-label="Search"
-  onChange={(selectedOption) => {
-    props.setSearchInput(selectedOption.value);
-    props.searchItems(selectedOption.value);
-  }}
-  options={selectionArr}
-/>
+            <Select
+              placeholder="Search"
+              className="me-2"
+              aria-label="Search"
+              options={props.titlesArr.map((title) => ({ value: title, label: title }))}
+              onChange={(selectedOption) => {
+                props.setSearchInput(selectedOption.value);
+                props.searchItems(selectedOption.value);
+              }}
+            />
 
             <Button variant="outline-info">Search</Button>
           </Form>
