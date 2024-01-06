@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Height } from '@material-ui/icons';
 import { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -8,6 +7,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Select from 'react-select';
+import { FaSearch } from "react-icons/fa";
 
 
 function NavBar(props: {
@@ -73,11 +73,13 @@ function NavBar(props: {
               options={props.titlesArr.map((title) => ({ value: title, label: title }))}
               value={{ value: inputValue, label: inputValue }}
               onInputChange={(value) => setInputValue(value)}
+              
               onChange={(selectedOption) => {
                 setInputValue(selectedOption.value);
                 props.setSearchInput(selectedOption.value);
                 props.searchItems(selectedOption.value);
               }}
+              
               styles={{
                 control: (provided) => ({
                   ...provided,
@@ -86,7 +88,7 @@ function NavBar(props: {
               }}
             />
 
-            <Button variant="outline-info">Search</Button>
+            <Button variant="outline-primary" ><FaSearch /></Button>
           </Form>
         </Navbar.Collapse>
       </Container>
