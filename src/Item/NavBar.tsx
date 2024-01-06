@@ -73,8 +73,7 @@ function NavBar(props: {
               options={props.titlesArr.map((title) => ({ value: title, label: title }))}
               value={{ value: inputValue, label: inputValue }}
               onInputChange={(value) => setInputValue(value)}
-              
-              onChange={(selectedOption) => {
+              onChange={(selectedOption: {value: string,label: string}) => {
                 setInputValue(selectedOption.value);
                 props.setSearchInput(selectedOption.value);
                 props.searchItems(selectedOption.value);
