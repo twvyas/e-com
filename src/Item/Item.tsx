@@ -73,7 +73,6 @@ const Item = ({ item, handleAddToCart }:Props) => {
         {renderStars()}
 
         <br />
-        {/* <p> {item.rating.count} </p> */}
 
       </div>
       <div className="card-body" style={{ borderRadius: '0 0 40px 40px' }}>

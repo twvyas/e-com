@@ -329,7 +329,8 @@ const App = () => {
       filterProducts(); 
     }
   };
-  
+
+
 
   useEffect(() => {
     getProducts();
