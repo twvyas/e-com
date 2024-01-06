@@ -13,7 +13,7 @@ type Props = {
 
 const Item = ({ item, handleAddToCart }:Props) => {
   const renderStars = () => {
-    const filledStars = Math.round(item.rating.rate); // Round to the nearest integer
+    const filledStars = Math.round(item.rating.rate); 
     const stars = [];
 
     for (let i = 1; i <= 5; i++) {
@@ -73,7 +73,7 @@ const Item = ({ item, handleAddToCart }:Props) => {
         {renderStars()}
 
         <br />
-        <p> {item.rating.count} </p>
+        {/* <p> {item.rating.count} </p> */}
 
       </div>
       <div className="card-body" style={{ borderRadius: '0 0 40px 40px' }}>

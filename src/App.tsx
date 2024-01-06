@@ -41,7 +41,7 @@ const App = () => {
   // const [cartItems, setCartItems] = useState([] as CartItemType[])
   const [data, setData] = useState([] as CartItemType[])
   const [searchInput, setSearchInput] = useState('');
-  const [titlesArr, setTitlesArr] = useState(['title']);
+  const [titlesArr, setTitlesArr] = useState([]);
 
 
   const getProducts = async () => {
@@ -295,10 +295,6 @@ const App = () => {
       setSelectionArr([...selectionArr, ...uniqueCategories]);
       console.log(uniqueCategories)
 
-      const uniqueTitlesArr = [...new Set(productsArr.map((d) => d.title))];
-      setTitlesArr([...titlesArr, ...uniqueTitlesArr]);
-      console.log(uniqueTitlesArr)
-
     } catch (error) {
       console.log("Error fetching products:", error);
       setError(true)
@@ -315,22 +311,25 @@ const App = () => {
       setProducts(filterData);
     }
   }
-
+  
   const searchItems = (searchValue: string) => {
     setSearchInput(searchValue);
     if (searchValue !== '') {
-      const filterProducts = data.filter((item) => {
-        return Object.values(item)
-          .filter((value) => typeof value === 'string')
-          .join('')
-          .toLowerCase()
-          .includes(searchValue.toLowerCase());
+      const filteredProducts = products.filter((item) => {
+        return (
+          Object.values(item)
+            .filter((value) => typeof value === 'string')
+            .join('')
+            .toLowerCase()
+            .includes(searchValue.toLowerCase())
+        );
       });
-      setProducts(filterProducts);
+      setProducts(filteredProducts);
     } else {
-      filterProducts();
+      filterProducts(); 
     }
   };
+  
 
   useEffect(() => {
     getProducts();
@@ -339,6 +338,15 @@ const App = () => {
   useEffect(() => {
     filterProducts();
   }, [data, categories]);
+
+  useEffect(() => {
+    console.log("hello");    
+    const uniqueTitlesArr = [...new Set(products.map((d) => d.title))];
+    console.log(uniqueTitlesArr);
+    
+      setTitlesArr([...uniqueTitlesArr]);
+  }, [products]);
+
 
 
   const getTotalItems = () => null;
