@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-
 display:flex;
 justify-content:space-between;
 flex-direction:column;
@@ -20,6 +19,7 @@ img{
     max-width:200px;
     object-fit:cover;
     border-radius:20px 20px 0 0;
+    
 }
 
 div{
@@ -42,10 +42,6 @@ div{
   }
 
   .checked {
-    color: orange;
-
-
-
-
-
+    color: orange;}
+    
 `;

@@ -13,6 +13,7 @@ import Footer from './Item/Footer'
 //styles
 import { Wrapper, StyledButton } from './App.styles';
 import { Button, Form } from 'react-bootstrap'
+
 // import { apiCall } from './utils/functions'
 
 //type
@@ -362,7 +363,6 @@ const App = () => {
   return (
     <>
       <NavBar titlesArr={titlesArr} setCategories={setCategories} selectionArr={selectionArr} setSearchInput={setSearchInput} searchItems={searchItems} />
-
       <Wrapper>
         <Drawer anchor='right' open={cartOpen} onClose={() => setCartOpen(false)}>
           Cart goes here
@@ -378,6 +378,7 @@ const App = () => {
           ))}
         </Grid>
       </Wrapper>
+      
       <Footer />
     </>
   );

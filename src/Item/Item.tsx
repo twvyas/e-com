@@ -25,10 +25,10 @@ const Item = ({ item, handleAddToCart }:Props) => {
   };
 
   return (
-    <div className="card" style={{ width: '18rem' }}>
+    <div className="card" style={{ width: '18rem', margin:'auto'}}>
       <br />
       <img
-        className="card-img-top"
+        className="card-img-top "
         style={{ width: '10rem', height: '10rem', margin: 'auto' }}
         src={item.image}
         alt={item.title}
