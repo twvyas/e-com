@@ -42,8 +42,7 @@ const App = () => {
   const [data, setData] = useState([] as CartItemType[])
   const [searchInput, setSearchInput] = useState('');
   const [titlesArr, setTitlesArr] = useState([]);
-
-
+  
   const getProducts = async () => {
     try {
       setIsLoading(true);

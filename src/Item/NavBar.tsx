@@ -7,6 +7,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Select from 'react-select';
+import DataList from 'react-datalist-field'
 import { FaSearch } from "react-icons/fa";
 
 
@@ -31,7 +32,8 @@ function NavBar(props: {
   };
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary fixed-top border-bottom rounded-bottom shadow mb-5 bg-white rounded">
+    <Navbar expand="lg" className="bg-body-tertiary fixed-top border-bottom rounded-bottom 
+    shadow mb-5 bg-white rounded">
       <Container fluid>
         <Navbar.Brand href="#">Store</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -66,7 +68,7 @@ function NavBar(props: {
               }}
             /> */}
 
-            <Select
+            {/* <Select
               placeholder="Search"
               className="me-2"
               aria-label="Search"
@@ -78,14 +80,39 @@ function NavBar(props: {
                 props.setSearchInput(selectedOption.value);
                 props.searchItems(selectedOption.value);
               }}
-              
               styles={{
                 control: (provided) => ({
                   ...provided,
                   width: '400px',
                 }),
               }}
-            />
+            /> */}
+
+<input
+  type="text"
+  placeholder="Search"
+  className="me-2"
+  aria-label="Search"
+  list="titlesList"
+  value={inputValue}
+  onChange={(e) => {
+    setInputValue(e.target.value);
+    props.setSearchInput(e.target.value);
+    props.searchItems(e.target.value);
+  }}
+  style={{
+    width: '400px',
+  }}
+/>
+<datalist id="titlesList">
+  {props.titlesArr.map((title) => (
+    <option key={title} value={title} />
+  ))}
+</datalist>
+
+
+
+            
 
             <Button variant="outline-primary" ><FaSearch /></Button>
           </Form>
