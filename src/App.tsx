@@ -1,18 +1,14 @@
-import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css'
 import { useEffect, useState } from 'react'
 import Item from './Item/Item'
-import Drawer from '@material-ui/core/Drawer'
 import LinearProgress from '@material-ui/core/LinearProgress'
 import Grid from '@material-ui/core/Grid'
-import Badge from '@material-ui/core/Badge'
+
 import NavBar from './Item/NavBar'
 import Footer from './Item/Footer'
-import ProductPage from './Item/ProductPage'
 
-import { Wrapper, StyledButton } from './App.styles';
-import { Button, Form } from 'react-bootstrap'
+import { Wrapper } from './App.styles';
+
 
 export type CartItemType = {
   [x: string]: unknown
@@ -30,7 +26,7 @@ export type CartItemType = {
 }
 
 const App = () => {
-  const [cartOpen, setCartOpen] = useState(false);
+ 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const [categories, setCategories] = useState("All");
@@ -347,7 +343,7 @@ const App = () => {
 
 
 
-  const getTotalItems = () => null;
+
   const handleAddToCart = (clickedItem: CartItemType) => null;
   // const handleRemoveFromCart = () => null;
 
@@ -358,30 +354,8 @@ const App = () => {
 
   return (
     <>
-    <BrowserRouter>
-      <Routes>
-        {/* <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="blogs" element={<Blogs />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="*" element={<NoPage />} />
-        </Route> */}
-
-        
-      </Routes>
-    </BrowserRouter>
-
-
-
       <NavBar titlesArr={titlesArr} setCategories={setCategories} selectionArr={selectionArr} setSearchInput={setSearchInput} searchItems={searchItems} />
-
       <Wrapper>
-        <Drawer anchor='right' open={cartOpen} onClose={() => setCartOpen(false)}>
-          Cart goes here
-        </Drawer>
-        <StyledButton onClick={() => setCartOpen(true)}>
-          <Badge badgeContent={getTotalItems()}></Badge>
-        </StyledButton>
         <Grid container spacing={3}>
           {products?.map(item => (
             <Grid item key={item.id} xs={12} sm={3}>
