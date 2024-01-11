@@ -1,11 +1,6 @@
-// import Button from '@material-ui/core/Button'
-import Button from 'react-bootstrap/Button';
-// import Card from 'react-bootstrap/Card';
 
-//types
+import Button from 'react-bootstrap/Button';
 import { CartItemType } from '../App'
-//styles
-// import { Wrapper } from './Item.styles'
 type Props = {
   item: CartItemType;
   handleAddToCart: (clickedItem: CartItemType) => void;
@@ -76,8 +71,9 @@ const Item = ({ item, handleAddToCart }:Props) => {
 
       </div>
       <div className="card-body" style={{ borderRadius: '0 0 40px 40px' }}>
-        <Button className='button' onClick={() => handleAddToCart(item)}>
+        <Button className="btn btn-dark" onClick={() => handleAddToCart(item)}>
           Add to Cart
+       
         </Button>
       </div>
     </div>
