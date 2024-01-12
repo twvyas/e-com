@@ -107,11 +107,6 @@ function NavBar(props: {
                 <option key={title} value={title} />
               ))}
             </datalist>
-   
-
-
-
-
             <Button variant="outline-dark"><FaSearch /></Button>
           </Form>
         </Navbar.Collapse>
@@ -121,6 +116,3 @@ function NavBar(props: {
 }
 
 export default NavBar;
-
-
-

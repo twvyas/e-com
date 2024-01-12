@@ -1,15 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App.tsx';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import './index.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import App from './App';
+import ProductDetails from './ProductDetails';
 
-const client = new QueryClient();
-const rootElement = document.getElementById('root')!;
+const Routes: React.FC = () => {
+  return (
+    <Router>
+      <Switch>
+        <Route path="/" exact component={App} />
+        <Route path="/product/:id" component={ProductDetails} />
+      </Switch>
+    </Router>
+  );
+};
 
-const root = ReactDOM.createRoot(rootElement);
-root.render(
-  <QueryClientProvider client={client}>
-    <App />
-  </QueryClientProvider>
-);
+export default Routes;

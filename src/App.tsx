@@ -3,10 +3,8 @@ import { useEffect, useState } from 'react'
 import Item from './Item/Item'
 import LinearProgress from '@material-ui/core/LinearProgress'
 import Grid from '@material-ui/core/Grid'
-
 import NavBar from './Item/NavBar'
 import Footer from './Item/Footer'
-
 import { Wrapper } from './App.styles';
 
 
