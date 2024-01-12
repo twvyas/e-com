@@ -1,4 +1,3 @@
-
 import Button from 'react-bootstrap/Button';
 import { CartItemType } from '../App'
 type Props = {
@@ -52,7 +51,7 @@ const Item = ({ item, handleAddToCart }:Props) => {
           }}>
           {item.description}
         </p>
-
+        
         <p
           className="card-text "
           style={{

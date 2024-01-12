@@ -44,9 +44,5 @@ div{
 
   .checked {
     color: orange;
-
-
-
-
-
+  }
 `;

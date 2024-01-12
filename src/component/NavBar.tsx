@@ -10,7 +10,6 @@ import Select from 'react-select';
 import DataList from 'react-datalist-field'
 import { FaSearch } from "react-icons/fa";
 
-
 function NavBar(props: {
   searchItems(value: string): unknown;
   setCategories: (arg0: string) => void;
@@ -20,6 +19,9 @@ function NavBar(props: {
 }) 
 {
   const [selectedValue, setSelectedValue] = useState('All');
+  
+
+
   // const [searchProduct, setSearchProduct] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const handleSelect = (selectedItem: string) => {
@@ -53,39 +55,7 @@ function NavBar(props: {
                 </NavDropdown.Item>
               ))}
             </NavDropdown>
-            {/* <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              // options={props.titlesArr}
-              aria-label="Search"
-              onChange={(e) => {
-                props.setSearchInput(e.target.value);
-                props.searchItems(e.target.value);
-              }}
-            /> */}
-
-            {/* <Select
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-              options={props.titlesArr.map((title) => ({ value: title, label: title }))}
-              value={{ value: inputValue, label: inputValue }}
-              onInputChange={(value) => setInputValue(value)}
-              onChange={(selectedOption: {value: string,label: string}) => {
-                setInputValue(selectedOption.value);
-                props.setSearchInput(selectedOption.value);
-                props.searchItems(selectedOption.value);
-              }}
-              styles={{
-                control: (provided) => ({
-                  ...provided,
-                  width: '400px',
-                }),
-              }}
-            /> */}
-
-            <input id="myDIV"
+            <input
               type="text"
               placeholder="Search"
               className="me-2"
@@ -107,11 +77,6 @@ function NavBar(props: {
                 <option key={title} value={title} />
               ))}
             </datalist>
-   
-
-
-
-
             <Button variant="outline-dark"><FaSearch /></Button>
           </Form>
         </Navbar.Collapse>
@@ -121,6 +86,7 @@ function NavBar(props: {
 }
 
 export default NavBar;
+
 
 
 
