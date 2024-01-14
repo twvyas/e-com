@@ -3,8 +3,15 @@ import { useEffect, useState } from 'react'
 import Item from './Item/Item'
 import LinearProgress from '@material-ui/core/LinearProgress'
 import Grid from '@material-ui/core/Grid'
+<<<<<<< HEAD
 import NavBar from './Item/NavBar'
 import Footer from './Item/Footer'
+=======
+
+import NavBar from './component/NavBar'
+import Footer from './component/Footer'
+
+>>>>>>> 7c8607766464f3576484989e788d22a544fab935
 import { Wrapper } from './App.styles';
 
 
@@ -321,8 +328,6 @@ const App = () => {
     }
   };
 
-
-
   useEffect(() => {
     getProducts();
   }, []);
@@ -339,13 +344,8 @@ const App = () => {
       setTitlesArr([...uniqueTitlesArr]);
   }, [products]);
 
-
-
-
   const handleAddToCart = (clickedItem: CartItemType) => null;
   // const handleRemoveFromCart = () => null;
-
-
 
   if (isLoading) return <LinearProgress />
   if (error) return <div>Something went wrong ...</div>
@@ -362,7 +362,6 @@ const App = () => {
           ))}
         </Grid>
       </Wrapper>
-     
       <Footer />
     </>
   );
